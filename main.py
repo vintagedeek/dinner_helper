@@ -25,13 +25,26 @@ wait_time_ms = 20
 speed_degrees_per_second = 300
 
 def set_led_for_state(running: bool) -> None:
+    """
+    Set the EV3 brick's LED to green if running is True, else red.
+
+    Parameters
+    ----------
+    running : bool
+        If True, set LED to green. If False, set LED to red.    
+    """
     ev3.light.on(Color.GREEN if running else Color.RED)
 
 def start_motors():
+    """
+    Start the left and right motors running at speed_degrees_per_second."""
     left_motor.run(speed=speed_degrees_per_second)
     right_motor.run(speed=speed_degrees_per_second)
 
 def stop_motors():
+    """
+    Stop the left and right motors.
+    """
     left_motor.stop(STOP_MODE)
     right_motor.stop(STOP_MODE)
 
